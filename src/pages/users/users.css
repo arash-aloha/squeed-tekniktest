@@ -1,0 +1,29 @@
+.users-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.users-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.user {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.user a {
+  text-decoration: none;
+  color: #000;
+}
+.img-container {
+  border: 20px solid #ff6550;
+  width: 14rem;
+}
+.user a:hover,
+.img-container:hover {
+  color: #ff6550;
+  border: 20px solid #0c0504;
+}
+.img-container img {
+  width: 100%;
+}

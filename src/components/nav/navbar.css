@@ -1,0 +1,50 @@
+nav {
+  height: 6rem;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.link-container {
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+.right .link a {
+  margin-left: 1rem;
+}
+.link a {
+  display: flex;
+  display: inline-block;
+  position: relative;
+  color: #000;
+}
+
+.link a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.link a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.link a {
+  text-decoration: none;
+  padding: 0.2rem;
+}
+.link .active {
+  font-weight: bold;
+  color: #000;
+}
+
+@media (min-width: 50rem) {
+}
