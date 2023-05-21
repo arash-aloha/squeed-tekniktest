@@ -1,6 +1,4 @@
 import { memo } from "react";
-import { useQuery } from "react-query";
-import { fetchAllUsers } from "../../api/api";
 import ErrorPage from "../error/ErrorPage";
 import IsLoading from "../../components/loading/IsLoading";
 
@@ -8,25 +6,28 @@ import "./users.css";
 import { Link } from "react-router-dom";
 import SearchBar from "../../components/searchbar/SearchBar";
 import { PageTitle, User, UsersInterface } from "../../models/types";
+import styled from "styled-components";
+import { GetAllUsers, generateUsersArray } from "../../utils/helpers";
+
+const TopSection = styled.section`
+  display: flex;
+  justify-content: space-between;
+`;
 
 function Users({ title }: PageTitle) {
-  const { data, error, isLoading } = useQuery<UsersInterface, ErrorConstructor>(
-    ["all-users"],
-    fetchAllUsers,
-    { refetchOnMount: false }
-  );
+  const { data, error, isLoading } = GetAllUsers();
 
   if (isLoading) return <IsLoading />;
   if (error) return <ErrorPage />;
 
-  const users: User[] = data ? data.users : [];
+  const users: User[] = generateUsersArray(data);
 
   return (
     <main className="main-wrapper">
-      <section>
+      <TopSection>
         <h1>{title}</h1>
         <SearchBar />
-      </section>
+      </TopSection>
       <section className="users-wrapper">
         <div className="users-container">{renderUsers(users)}</div>
       </section>

@@ -1,13 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
+import {
+  QueryClient,
+  QueryClientConfig,
+  QueryClientProvider,
+  QueryObserverOptions,
+  QueryOptions,
+} from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import "./index.css";
 import App from "./App";
 
-const config = { defaultOptions: { queries: { staleTime: 1000 * 60 } } };
+const config: QueryOptions | QueryObserverOptions | QueryClientConfig = {
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 60,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    },
+  },
+};
 
 const queryClient = new QueryClient(config);
 

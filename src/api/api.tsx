@@ -8,6 +8,7 @@ export const fetchAllUsers = async (): Promise<UsersInterface> => {
 
   try {
     const response = await axios.get(`${BASE_URL}${QUERY_LIMIT}`);
+    console.log("FETCH ALL USERS CALLED");
     const data: UsersInterface | undefined = response.data;
     if (!data) {
       throw new Error("Invalid data received");
@@ -24,6 +25,7 @@ export const fetchUserById = async (
 ): Promise<User | undefined> => {
   try {
     const response = await axios.get(`${BASE_URL}/${id}`);
+    console.log("FETCH USER BY ID CALLED");
     const data: User = response.data;
     if (!data) {
       throw new Error("Invalid data received");

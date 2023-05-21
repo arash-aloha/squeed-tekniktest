@@ -6,20 +6,20 @@ export interface UsersInterface {
 }
 
 export interface User {
-  id: number;
   address: Address;
+  age: number;
+  birthDate: string;
+  bloodGroup: string;
+  email: string;
+  eyeColor: string;
+  id: number;
+  image: string;
   firstName: string;
   lastName: string;
   maidenName: string;
-  age: number;
-  email: string;
   phone: string;
-  birthDate: string;
-  image: string;
-  bloodGroup: string;
   height: number;
   weight: number;
-  eyeColor: string;
 }
 
 export interface Address {
