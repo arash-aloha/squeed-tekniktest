@@ -16,6 +16,7 @@ export interface UsersInterface {
 
 export interface User {
   id: number;
+  address: Address;
   firstName: string;
   lastName: string;
   maidenName: string;
@@ -30,11 +31,18 @@ export interface User {
   eyeColor: string;
 }
 
+export interface Address {
+  address: string;
+  city: string;
+  postalCode: string;
+  state: string;
+}
+
 function Users() {
   const { data, error, isLoading } = useQuery<UsersInterface, ErrorConstructor>(
     ["all-users"],
     fetchAllUsers,
-    { staleTime: 1000 * 60 * 10 }
+    { refetchOnMount: false }
   );
 
   if (isLoading) return <IsLoading />;

@@ -7,7 +7,9 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import "./index.css";
 import App from "./App";
 
-const queryClient = new QueryClient();
+const config = { defaultOptions: { queries: { staleTime: 1000 * 60 } } };
+
+const queryClient = new QueryClient(config);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

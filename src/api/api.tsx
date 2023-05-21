@@ -23,9 +23,12 @@ export const fetchUserById = async (
   id: string | string[] | undefined
 ): Promise<User | undefined> => {
   try {
-    const response: User = await axios.get(`${BASE_URL}/${id}`);
-    console.log("USER: ", response);
-    return response;
+    const response = await axios.get(`${BASE_URL}/${id}`);
+    const data: User = response.data;
+    if (!data) {
+      throw new Error("Invalid data received");
+    }
+    return data;
   } catch (error) {
     console.log("Something went wrong fetching user: ", error);
     throw new Error(`${error}`);

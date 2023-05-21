@@ -1,11 +1,15 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavigateOptions, useNavigate } from "react-router-dom";
+import { navigateBackClickHandler } from "../../utils/helpers";
 import "./errorpage.css";
 
 function ErrorPage() {
   const navigate = useNavigate();
 
-  const clickHandler = () => {
-    navigate("/users", { replace: true });
+  const handleClick = () => {
+    const url: string = "/users";
+    const config: NavigateOptions = { replace: true };
+
+    navigateBackClickHandler(url, config, navigate);
   };
 
   return (
@@ -14,7 +18,7 @@ function ErrorPage() {
       <p> Something went wrong </p>
       <button
         style={{ padding: "0.5rem", fontWeight: "bold", cursor: "pointer" }}
-        onClick={clickHandler}
+        onClick={handleClick}
       >
         Back to Users
       </button>
