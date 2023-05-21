@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UsersInterface, User } from "../pages/users/Users";
+import { UsersInterface, User } from "../models/types";
 
 const BASE_URL = `https://dummyjson.com/users`;
 

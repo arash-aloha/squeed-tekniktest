@@ -6,39 +6,10 @@ import IsLoading from "../../components/loading/IsLoading";
 
 import "./users.css";
 import { Link } from "react-router-dom";
+import SearchBar from "../../components/searchbar/SearchBar";
+import { PageTitle, User, UsersInterface } from "../../models/types";
 
-export interface UsersInterface {
-  limit: number;
-  skip: number;
-  total: number;
-  users: User[];
-}
-
-export interface User {
-  id: number;
-  address: Address;
-  firstName: string;
-  lastName: string;
-  maidenName: string;
-  age: number;
-  email: string;
-  phone: string;
-  birthDate: string;
-  image: string;
-  bloodGroup: string;
-  height: number;
-  weight: number;
-  eyeColor: string;
-}
-
-export interface Address {
-  address: string;
-  city: string;
-  postalCode: string;
-  state: string;
-}
-
-function Users() {
+function Users({ title }: PageTitle) {
   const { data, error, isLoading } = useQuery<UsersInterface, ErrorConstructor>(
     ["all-users"],
     fetchAllUsers,
@@ -52,7 +23,10 @@ function Users() {
 
   return (
     <main className="main-wrapper">
-      <h1>Users</h1>
+      <section>
+        <h1>{title}</h1>
+        <SearchBar />
+      </section>
       <section className="users-wrapper">
         <div className="users-container">{renderUsers(users)}</div>
       </section>

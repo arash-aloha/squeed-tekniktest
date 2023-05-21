@@ -4,10 +4,11 @@ import { NavigateOptions, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { fetchUserById } from "../../api/api";
-import { User } from "../users/Users";
+
 import IsLoading from "../../components/loading/IsLoading";
 import ErrorPage from "../error/ErrorPage";
 import { navigateBackClickHandler } from "../../utils/helpers";
+import { User } from "../../models/types";
 
 const UserProfileContainer = styled.div`
   display: flex;
