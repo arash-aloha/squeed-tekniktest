@@ -5,7 +5,7 @@ function Home() {
     <main className="main-wrapper">
       <h1>Hola Mundo!</h1>
       <h4>
-        <Link to="/products"> Enter </Link>
+        <Link to="/users"> Enter </Link>
       </h4>
     </main>
   );
