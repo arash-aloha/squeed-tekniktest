@@ -33,7 +33,8 @@ export const filterUsersOnSearch = (
     (user) =>
       firstNameMatch(user, searchString) ||
       lastNameMatch(user, searchString) ||
-      ageMatch(user, searchString)
+      ageMatch(user, searchString) ||
+      maidenNameMatch(user, searchString)
   );
   return filteredUsers;
 };
@@ -41,6 +42,10 @@ export const filterUsersOnSearch = (
 export const firstNameMatch = (user: any, searchString: any) => {
   const firstName = user.firstName.toLowerCase();
   return firstName.includes(searchString);
+};
+export const maidenNameMatch = (user: User, searchString: any) => {
+  const maidenName = user.maidenName.toLowerCase();
+  return maidenName.includes(searchString);
 };
 export const lastNameMatch = (user: any, searchString: any) => {
   const lastName = user.lastName.toLowerCase();

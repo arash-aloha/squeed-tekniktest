@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import { User } from "../../models/types";
 import UserCard from "../UserCard";
 
