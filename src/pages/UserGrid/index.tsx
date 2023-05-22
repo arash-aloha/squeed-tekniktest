@@ -31,9 +31,12 @@ function UserGrid({ title }: PageTitle) {
         <SearchBar setFilteredUsers={setFilteredUsers} users={users} />
       </TopSection>
       <section className="users-wrapper">
-        <SearchResults searchResults={filteredUsers} />
         <div className="users-container">
-          <UserCard users={users} />;
+          {filteredUsers ? (
+            <SearchResults searchResults={filteredUsers} />
+          ) : (
+            <UserCard users={users} />
+          )}
         </div>
       </section>
     </main>

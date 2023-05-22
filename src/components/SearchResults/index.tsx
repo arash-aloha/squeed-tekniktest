@@ -1,5 +1,6 @@
 import { memo, useEffect } from "react";
 import { User } from "../../models/types";
+import UserCard from "../UserCard";
 
 interface SearchResultsProps {
   searchResults: User[] | undefined;
@@ -8,11 +9,7 @@ interface SearchResultsProps {
 function SearchResults({ searchResults }: SearchResultsProps) {
   return (
     <>
-      {searchResults?.map((result) => (
-        <div key={result.id}>
-          <p>{result.firstName}</p>
-        </div>
-      ))}
+      <UserCard users={searchResults} />
     </>
   );
 }
