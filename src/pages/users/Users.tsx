@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "../../components/searchbar/SearchBar";
 import { PageTitle, User, UsersInterface } from "../../models/types";
 import styled from "styled-components";
-import { GetAllUsers, generateUsersArray } from "../../utils/helpers";
+import { useGetAllUsers, generateUsersArray } from "../../utils/helpers";
 
 const TopSection = styled.section`
   display: flex;
@@ -15,7 +15,7 @@ const TopSection = styled.section`
 `;
 
 function Users({ title }: PageTitle) {
-  const { data, error, isLoading } = GetAllUsers();
+  const { data, error, isLoading } = useGetAllUsers();
 
   if (isLoading) return <IsLoading />;
   if (error) return <ErrorPage />;

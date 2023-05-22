@@ -11,8 +11,23 @@ export const navigateBackClickHandler = (
   navigate(url, config);
 };
 
-export const GetAllUsers = (): UseQueryResult<UsersInterface, unknown> => {
-  return useQuery(["all-users"], fetchAllUsers);
+const ALL_USERS = "all-users";
+
+export const useGetAllUsers = (): UseQueryResult<UsersInterface, unknown> => {
+  return useQuery([ALL_USERS], fetchAllUsers);
+};
+
+export const useGetFilteredUsers = (targetValue: any) => {
+  console.log("FILTER HELPER", targetValue);
+  return useQuery([ALL_USERS], () => fetchAllUsers(), {
+    select: (users) =>
+      users.users.filter(
+        (user) =>
+          user.firstName.includes(targetValue) ||
+          user.lastName.includes(targetValue) ||
+          user.age.toString().includes(targetValue)
+      ),
+  });
 };
 
 export function generateUsersArray(data?: UsersInterface): User[] {

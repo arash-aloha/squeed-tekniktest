@@ -1,12 +1,13 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 
 import styled from "styled-components";
 import {
-  GetAllUsers,
+  useGetAllUsers,
   ageMatch,
   firstNameMatch,
   generateUsersArray,
   lastNameMatch,
+  useGetFilteredUsers,
 } from "../../utils/helpers";
 import { User } from "../../models/types";
 
@@ -28,32 +29,25 @@ const Input = styled.input`
 `;
 
 function SearchBar() {
-  const { data, error, isLoading } = GetAllUsers();
+  const [filters, setFilters] = useState({});
+  const { data, error, isLoading } = useGetFilteredUsers(filters);
 
   console.log("COMPONENT", data);
-
-  const users: User[] = generateUsersArray(data);
+  console.log("FILTERS ", filters);
+  // const users: User[] = generateUsersArray(data);
 
   const handleOnChange = (e: any) => {
     const targetValue = e.target.value.toLowerCase();
-    if (!targetValue) return users;
-
-    const searchResults = users.filter(
-      (user) =>
-        user.firstName.includes(targetValue) ||
-        user.lastName.includes(targetValue) ||
-        user.age.toString().includes(targetValue)
-    );
-    console.log(searchResults);
-    return (
-      <>
-        {searchResults.length >= 1
-          ? searchResults.map((result) => (
-              <div key={result.id}> {result.firstName} </div>
-            ))
-          : null}
-      </>
-    );
+    // if (!targetValue) return data;
+    console.log(targetValue);
+    setFilters(targetValue);
+    // const searchResults = users.filter(
+    //   (user) =>
+    //     user.firstName.includes(targetValue) ||
+    //     user.lastName.includes(targetValue) ||
+    //     user.age.toString().includes(targetValue)
+    // );
+    // console.log(searchResults);
   };
 
   return (
