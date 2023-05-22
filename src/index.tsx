@@ -7,8 +7,8 @@ import {
   QueryClientProvider,
   QueryObserverOptions,
   QueryOptions,
-} from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+} from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import "./index.css";
 import App from "./App";

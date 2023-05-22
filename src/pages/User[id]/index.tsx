@@ -1,12 +1,12 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { memo } from "react";
 import { NavigateOptions, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { fetchUserById } from "../../api/api";
 
-import IsLoading from "../../components/loading/IsLoading";
-import ErrorPage from "../error/ErrorPage";
+import IsLoading from "../../components/Loading";
+import ErrorPage from "../ErrorPage";
 import { navigateBackClickHandler } from "../../utils/helpers";
 import { User } from "../../models/types";
 

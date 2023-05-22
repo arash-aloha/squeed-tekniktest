@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
-import Contact from "./pages/contact/Contact";
-import About from "./pages/about/About";
-import Navbar from "./components/nav/Navbar";
-import Layout from "./components/layout/Layout";
-import ErrorPage from "./pages/error/ErrorPage";
-import Users from "./pages/users/Users";
-import UserProfile from "./pages/userProfile/UserProfile";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Navbar from "./components/NavBar";
+import Layout from "./components/Layout";
+import ErrorPage from "./pages/ErrorPage";
+import Users from "./pages/UserGrid";
+import UserProfile from "./pages/User[id]";
 
 function App() {
   return (
